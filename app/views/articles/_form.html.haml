@@ -1,4 +1,8 @@
 = simple_form_for @article do |f|
+	- if @article.errors.any?
+		- @article.errors.full_messages.each do |msg|
+			%ul
+				%li= msg
 	%p= f.input :title
 	%p= f.input :content
 	%p= f.submit
