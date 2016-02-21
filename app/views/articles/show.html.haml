@@ -6,3 +6,24 @@
 			= link_to "Home", root_path, class:'btn btn-primary'
 			= link_to "Edit", edit_article_path, class:'btn btn-success'
 			= link_to "Delete", @article, method: :delete, data: { confirm: "Are you sure?"}, class:'btn btn-danger'
+
+%br/
+%br/
+%br/
+- unless @article.comments.count == 0
+	.row.col-md-6.col-md-offset-3.text-center.jumbotron	
+		%h3
+			You have
+			= pluralize(@article.comments.count, 'comment')
+
+.row.col-md-6.col-md-offset-3.text-center.well
+	- if @article.comments.count == 0
+		%h3 You have no comments at the moment
+	- else
+		%h3= render @article.comments.order("created_at DESC")
+
+%br/
+%br/
+%br/
+
+= render 'comments/form'

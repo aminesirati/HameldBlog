@@ -8,4 +8,28 @@
 %body
 	- flash.each do |name,msg|
 		= content_tag :div, msg, class: "alert alert-#{name}"
+
+	%nav.navbar.navbar-inverse
+		.container-fluid
+			.navbar-header
+				%button.navbar-toggle
+					%span.icon-bar
+					%span.icon-bar
+					%span.icon-bar
+				= link_to "HameldBlog", root_path,class:'navbar-brand'
+			.collapse.navbar-collapse#myNavbar
+				%ul.nav.navbar-nav
+					%li= link_to "New Article", new_article_path
+					%li= link_to "All Articles", root_path
+					%li= link_to "linkas", root_path
+					%li= link_to "some link", root_path
+				%ul.nav.navbar-nav.navbar-right
+					%li
+						= link_to root_path do
+							%span.glyphicon.glyphicon-user
+							Sign Up
+					%li
+						= link_to root_path do
+							%span.glyphicon.glyphicon-log-in
+							Sign In
 	= yield

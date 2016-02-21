@@ -1,0 +1,5 @@
+.row.col-md-6.col-md-offset-3.well
+	%h2 New comment
+	= simple_form_for([@article,@article.comments.build]) do |f|
+		%p= f.input :body
+		%p= f.submit

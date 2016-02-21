@@ -1,0 +1,3 @@
+%h3= comment.body
+= link_to "Edit comment", edit_article_comment_path(comment.article,comment), class:'btn btn-success'
+= link_to "Delete comment", [comment.article,comment], method: :delete, data: { confirm: "Are you sure?"}, class:'btn btn-danger'
