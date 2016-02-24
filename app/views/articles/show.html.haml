@@ -1,6 +1,7 @@
 .row
 	.well.col-md-8.col-md-offset-2.text-center
 		%h1= @article.title
+		%p= image_tag @article.image.medium.url
 		%p= @article.content
 		-if user_signed_in?
 			%p

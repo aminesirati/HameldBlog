@@ -1,2 +1,6 @@
 - @articles.each do |article|	
-	%h1.jumbotron.text-center#index-radius= link_to article.title, article
+	%h1.jumbotron.text-center#index-radius
+		= link_to article do
+			%p
+				= image_tag article.image.thumb.url
+			= article.title

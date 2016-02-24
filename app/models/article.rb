@@ -3,4 +3,6 @@ class Article < ActiveRecord::Base
 	belongs_to :user
 	validates :title, presence: true, length: { minimum: 4 }
 	validates :content, presence: true, length: { minimum: 30}
+	# Needed for carrierwave
+	mount_uploader :image, ImageUploader
 end
