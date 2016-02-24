@@ -1,5 +1,5 @@
 .row.col-md-6.col-md-offset-3.well
-	%h2 Edit comment
+	%h2.text-center Edit comment
 	= simple_form_for([@article,@comment]) do |f|
-		%p= f.input :body
+		%p= f.input :body, input_html: { rows: 10}
 		%p= f.submit
