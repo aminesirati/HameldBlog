@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   	resources :comments
   end
 
+  get '/users', to: 'users#index'
   root 'articles#index'
 end

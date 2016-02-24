@@ -3,6 +3,9 @@
 		%h1= @article.title
 		%p= image_tag @article.image.medium.url
 		%p= @article.content
+		%p
+			submited by
+			= @article.user.email
 		-if user_signed_in?
 			%p
 				= link_to "Edit", edit_article_path, class:'btn btn-success'
