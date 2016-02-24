@@ -24,12 +24,18 @@
 					%li= link_to "linkas", root_path
 					%li= link_to "some link", root_path
 				%ul.nav.navbar-nav.navbar-right
-					%li
-						= link_to root_path do
-							%span.glyphicon.glyphicon-user
-							Sign Up
-					%li
-						= link_to root_path do
-							%span.glyphicon.glyphicon-log-in
-							Sign In
+					- if user_signed_in?
+						%li
+							= link_to destroy_user_session_path, method: :delete do
+								%span.glyphicon.glyphicon-user
+								Log Out
+					- else
+						%li
+							= link_to new_user_registration_path do
+								%span.glyphicon.glyphicon-user
+								Sign Up
+						%li
+							= link_to new_user_session_path do
+								%span.glyphicon.glyphicon-log-in
+								Sign In
 	= yield

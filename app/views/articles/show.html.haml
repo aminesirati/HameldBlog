@@ -10,21 +10,20 @@
 %br/
 %br/
 %br/
-#commentaa
-	- unless @article.comments.count == 0
-		.row.col-md-6.col-md-offset-3.text-center.jumbotron	
-			%h3
-				You have
-				= pluralize(@article.comments.count, 'comment')
+- unless @article.comments.count == 0
+	.row.col-md-6.col-md-offset-3.text-center.jumbotron	
+		%h3
+			You have
+			= pluralize(@article.comments.count, 'comment')
 
-	.row.col-md-6.col-md-offset-3.text-center.well
-		- if @article.comments.count == 0
-			%h3 You have no comments at the moment
-		- else
-			%h3= render @article.comments.order("created_at DESC")
+.row.col-md-6.col-md-offset-3.text-center.well
+	- if @article.comments.count == 0
+		%h3 You have no comments at the moment
+	- else
+		%h3= render @article.comments.order("created_at DESC")
 
-	%br/
-	%br/
-	%br/
+%br/
+%br/
+%br/
 
-	= render 'comments/form'
+= render 'comments/form'
